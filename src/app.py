@@ -1,4 +1,5 @@
 from curses import flash
+from dataclasses import field
 from turtle import title
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -28,3 +29,11 @@ class persona(db.Model):
         self.Hobbie = Hobbie
 # crea las tablas de la bd
 db.create_all
+
+class personaSchema(ma.Schema):
+    class Meta:
+        fields = ('tipo_documento', 'documento','Nombre', 'Apellido','Hobbie')
+
+persona_schema = personaSchema()
+tasks_schema = personaSchema(many=True)
+
