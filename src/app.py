@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 # conexion a db
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root@localhost/flaskmysql'
+# app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://root@localhost/flaskmysql'
+app.config['SQLALCHEMY_DATABASE_URI']= 'mysql+pymysql://sql10478294:dXuQMgmMfx@sql10.freesqldatabase.com:3306/sql10478294'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -64,7 +65,7 @@ def get_personas():
     return jsonify(result)
 
 @app.route('/persona/<documento>', methods=['PUT'])
-def update_task(documento):
+def update_persona(documento):
     persona = Persona.query.get(documento)
 
     tipo_documento = request.json['tipo_documento']
