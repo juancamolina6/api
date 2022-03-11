@@ -82,6 +82,14 @@ def update_task(documento):
     db.session.commit()
     return persona_schema.jsonify(persona)
 
+@app.route('/persona/<documento>', methods=['DELETE'])
+def delete_persona(documento):
+    persona = Persona.query.get(documento)
+    db.session.delete(persona)
+    db.session.commit()
+
+    return persona_schema.jsonify(persona)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
