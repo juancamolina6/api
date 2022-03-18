@@ -4,7 +4,7 @@ import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
-const url = 'http://localhost:5000/persona';
+const url = '/persona';
 
 class App extends Component {
   state = {
