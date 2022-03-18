@@ -2,6 +2,10 @@ from flask import Flask, request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS
+import os
+
+port = int(os.environ.get('PORT', 5000))
+
 
 # conexion a db
 app = Flask(__name__)
@@ -96,4 +100,4 @@ def delete_persona(documento):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
